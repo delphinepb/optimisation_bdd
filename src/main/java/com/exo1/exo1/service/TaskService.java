@@ -5,6 +5,8 @@ import com.exo1.exo1.entity.Task;
 import com.exo1.exo1.mapper.TaskMapper;
 import com.exo1.exo1.repository.TaskRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
@@ -16,10 +18,12 @@ public class TaskService {
     private TaskRepository taskRepository;
     private TaskMapper taskMapper;
 
-    public List<TaskDto> findAll() {
-        return taskMapper.toDtos(taskRepository.findAll());
-    }
+    public List<TaskDto> findAll(int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<Task> taskPage = taskRepository.findAll(pageRequest);
 
+        return taskMapper.toDtos(taskPage.getContent());
+    }
     public TaskDto findById(long id) {
         return taskMapper.toDto(taskRepository.findById(id).orElse(null));
     }

@@ -16,9 +16,9 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping
-    public ResponseEntity<List<TaskDto>> findAll()
+    public ResponseEntity<List<TaskDto>> findAll(@RequestParam int page, @RequestParam int size)
     {
-        return ResponseEntity.ok(taskService.findAll());
+        return ResponseEntity.ok(taskService.findAll(page, size));
     }
 
     @GetMapping("/{id}")

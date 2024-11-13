@@ -17,15 +17,19 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<UserDto>> findAll()
+    public ResponseEntity<List<UserDto>> findAll(@RequestParam int page, @RequestParam int size)
     {
-        return ResponseEntity.ok(userService.findAll());
+        return ResponseEntity.ok(userService.findAll(page, size));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> findById(@PathVariable Long id)
-    {
-        return ResponseEntity.ok(userService.findById(id));
+    public ResponseEntity<UserDto> findById(@PathVariable long id) {
+        UserDto userDto = userService.findById(id);
+        if (userDto != null) {
+            return ResponseEntity.ok(userDto);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping
