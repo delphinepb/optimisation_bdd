@@ -17,11 +17,10 @@ public class ProjetController {
     private ProjetService projetService;
 
     @GetMapping
-    public ResponseEntity<List<ProjetDto>> findAll()
+    public ResponseEntity<List<ProjetDto>> findAll(@RequestParam int page, @RequestParam int size)
     {
-        return ResponseEntity.ok(projetService.findAll());
+        return ResponseEntity.ok(projetService.findAll(page, size));
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<ProjetDto> findById(@PathVariable Long id)
     {

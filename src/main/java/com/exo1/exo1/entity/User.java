@@ -12,6 +12,13 @@ import java.util.Set;
 @Table(name = "users", indexes = {
         @Index(name = "idx_users_email", columnList = "email"),
         @Index(name = "idx_users_name", columnList = "name")})
+@NamedEntityGraph(
+        name = "user-projet-task-graph",
+        attributeNodes = {
+                @NamedAttributeNode("projets"),
+                @NamedAttributeNode("task")
+        }
+)
 @Getter
 @Setter
 @AllArgsConstructor
