@@ -36,6 +36,13 @@ L'application doit gérer les entités suivantes : User, Projet et Task.
 - Pagination
 - Mettre en place une vue matérialisée qui va permettre de compter le nombre de tâche qu'il y a par projet
 
-### Réponses
+### Index et vue matérialisée
 
--
+1) Liste des index que j'ai ajouté : 
+
+![img.png](img.png)
+
+2) Mise en place de la vue matérialisée
+
+![img_1.png](img_1.png)
+

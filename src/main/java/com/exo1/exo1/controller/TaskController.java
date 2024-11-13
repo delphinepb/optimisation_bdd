@@ -1,5 +1,6 @@
 package com.exo1.exo1.controller;
 
+import com.exo1.exo1.dto.ProjetDto;
 import com.exo1.exo1.dto.TaskDto;
 import com.exo1.exo1.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;

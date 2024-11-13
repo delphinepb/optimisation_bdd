@@ -1,6 +1,8 @@
 package com.exo1.exo1.service;
 
+import com.exo1.exo1.dto.ProjetDto;
 import com.exo1.exo1.dto.TaskDto;
+import com.exo1.exo1.entity.Projet;
 import com.exo1.exo1.entity.Task;
 import com.exo1.exo1.mapper.TaskMapper;
 import com.exo1.exo1.repository.TaskRepository;
@@ -24,6 +26,7 @@ public class TaskService {
 
         return taskMapper.toDtos(taskPage.getContent());
     }
+
     public TaskDto findById(long id) {
         return taskMapper.toDto(taskRepository.findById(id).orElse(null));
     }

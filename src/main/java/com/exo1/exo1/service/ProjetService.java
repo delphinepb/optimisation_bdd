@@ -26,6 +26,7 @@ public class ProjetService {
 
         return projetMapper.toDtos(projetPage.getContent());
     }
+
     public ProjetDto findById(long id) {
         return projetMapper.toDto(projetRepository.findById(id).orElse(null));
     }
